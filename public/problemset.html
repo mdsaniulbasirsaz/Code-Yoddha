@@ -20,7 +20,7 @@
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav mr-auto">
                     <li class="nav-item active">
-                        <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+                        <a class="nav-link text-white font-weight-bold" href="/problemset">Problemset</span></a>
                     </li>
                 </ul>
                 <form class="form-inline my-2 my-lg-0">
@@ -40,27 +40,28 @@
 
         <div class="container mt-3" style="font-family: monospace;">
             <div class="card">
-                <div class="card-body">
-                    <form>
-                        <div class="form-group">
-                            <label for="tagsInput">Search Tags:</label>
-                            <input type="text" class="form-control" id="tagsInput" placeholder="Enter tags">
-                            <small class="pl-2">example:"binary search",
-                                "brute force",
-                                "data structures",
-                                "graphs",
-                                "greedy",
-                                 "implementation",
-                                "shortest paths"</small>
-                        </div>
-                        <button  type="button" class="btn btn-primary" id="searchButton">Search</button>
-                    </form>
-                </div>
-                    
+                <nav id="pagination" class="mt-3 pl-2" aria-label="Page navigation example">
+                    <ul  class="pagination justify-content-center list-unstyled">
+                    </ul>
+                </nav>
                 <div class="card-body">
 
                     <div id="results" class="mt-1">
-                   
+                        <table class="table table-striped">
+                            <thead>
+                                <tr style="font-size: 13px;">
+                                    <th class="text-center">No</th>
+                                    <th class="text-center">Name</th>
+                                    <th class="text-center">Contest ID</th>
+                                    <th class="text-center">Index</th>
+                                    <th class="text-center">Tags</th>
+                                </tr>
+                            </thead>
+                            <tbody style="font-size: 11px;">
+                               
+                               
+                            </tbody>
+                        </table>
                     </div>
     
                     <nav id="pagination" class="mt-3" aria-label="Page navigation example">
