@@ -21,11 +21,15 @@ document.addEventListener('DOMContentLoaded', async function() {
 });
 document.addEventListener('DOMContentLoaded', function() {
     fetchProblems(1);
+    const searchInput = document.getElementById('searchInput');
+    searchInput.addEventListener('input', () => fetchProblems(1));
 });
 
 const limit = 25; 
 
 function fetchProblems(page) {
+    const searchQuery = document.getElementById('searchInput').value.trim().toUpperCase(); // Get the search input value and convert to uppercase
+
     fetch('https://codeforces.com/api/problemset.problems')
         .then(response => response.json())
         .then(data => {
@@ -36,7 +40,10 @@ function fetchProblems(page) {
             tableBody.innerHTML = ''; 
             paginationContainer.innerHTML = ''; 
 
-            const problems = data.result.problems;
+            let problems = data.result.problems;
+            if (searchQuery) {
+                problems = problems.filter(problem => problem.index.toUpperCase().includes(searchQuery));
+            }
             if (problems.length === 0) {
                 tableBody.innerHTML = '<tr><td colspan="5">No problems found.</td></tr>';
                 return;
